@@ -5,9 +5,8 @@ let firstNumberStr, secondNumberStr;
 // Présentation
 function onClickNumber(number) {
     if (firstNumberStr == undefined) {
-        if (firstNumberStr == undefined) {
             firstNumberStr = number
-        }
+        
     } else {
         if (secondNumberStr == undefined) {
             secondNumberStr = number
@@ -66,7 +65,7 @@ function calculer(firstNumber, secondNumber, operation) {
     return _solution
 }
 
-function restValues() {
+function resetValues() {
     firstNumber = undefined;
     secondNumber = undefined;
     firstNumberStr = undefined;
