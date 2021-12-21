@@ -1,16 +1,16 @@
 // Variables
-let x, y, solution, operation;
-let xString, yString;
+let firstNumber, secondNumber, total, operation;
+let firstNumberStr, secondNumberStr;
 
 // Présentation
-function ClickNumber(number) {
-    if (xString == undefined) {
-        if (xString == undefined) {
-            xString = number
+function onClickNumber(number) {
+    if (firstNumberStr == undefined) {
+        if (firstNumberStr == undefined) {
+            firstNumberStr = number
         }
     } else {
-        if (yString == undefined) {
-            yString = number
+        if (secondNumberStr == undefined) {
+            secondNumberStr = number
         }
     }
 
@@ -18,20 +18,25 @@ function ClickNumber(number) {
 }
 
 
-function display() {
+function display(number) {
     let display = document.getElementById("display");
     display.value = "";
+    if (firstNumber != undefined && secondNumber != undefined && operation != undefined) {
 
-    if (xString != undefined)
-        display.value += xString
-    if (operation != undefined)
-        display.value += operation
-    if (yString != undefined)
-        display.value += yString
+        display.value = number;
+    } else {
+        if (firstNumberStr != undefined)
+            display.value += firstNumberStr
+        if (operation != undefined)
+            display.value += operation
+        if (secondNumberStr != undefined)
+            display.value += secondNumberStr
+    }
+
 
 }
 
-function Operation(OperationParm) {
+function operationHandle(OperationParm) {
     if (operation == undefined) {
         operation = OperationParm
         display()
@@ -39,24 +44,35 @@ function Operation(OperationParm) {
         alert("Vous avez déjà choisi l'opération " + operation);
 }
 
-function Equal() {
-    x = parseFloat(xString)
-    y = parseFloat(yString)
-    solution = calculer(x, y, operation)
-    display(solution)
+function equal() {
+    firstNumber = parseFloat(firstNumberStr)
+    secondNumber = parseFloat(secondNumberStr)
+    total = calculer(firstNumber, secondNumber, operation)
+    display(total)
 }
 
 
-function calculer(x, y, operation) {
+function calculer(firstNumber, secondNumber, operation) {
     let _solution = undefined
 
     switch (operation) {
         case '+':
-            _solution = x + y;
+            _solution = firstNumber + secondNumber;
             break;
         case '-':
-            _solution = x - y;
+            _solution = firstNumber - secondNumber;
             break;
     }
     return _solution
+}
+
+function restValues() {
+    firstNumber = undefined;
+    secondNumber = undefined;
+    firstNumberStr = undefined;
+    secondNumberStr = undefined;
+    operation = undefined;
+    let display = document.getElementById("display");
+    
+    display.value = "";
 }
