@@ -9,26 +9,26 @@ var total;
 
 function onClickNumber(number) {
 
-    // if(a == undefined){
-    //     if (aString == undefined) {
-    //         aString = ""    
-    //     }
-    //     aString += number
+    if(a == undefined){
+        if (aString == undefined) {
+            aString = ""    
+        }
+        aString += number
 
-    // }
-    // else {
-    //     if(bString == undefined){
-    //         bString = ""
-    //     }
+    }
+    else {
+        if(bString == undefined){
+            bString = ""
+        }
+        bString += number
+    }
+
+
+    // if (aString == undefined) {
+    //     aString += number
+    // } else {
     //     bString += number
     // }
-
-
-    if (aString == undefined) {
-        aString = number
-    } else {
-        bString = number
-    }
 
     display()
 }
@@ -57,6 +57,7 @@ function display(number) {
 function onClickOperation(operationParm) {
     if (operation == undefined) {
         operation = operationParm
+        a = parseFloat(aString)
     }
 
     display()
@@ -87,4 +88,15 @@ function calculate(aPara, bPara, operationPara) {
     }
 
     return _total
+}
+
+function resetValues() {
+    firstNumber = undefined;
+    secondNumber = undefined;
+    firstNumberStr = undefined;
+    secondNumberStr = undefined;
+    operation = undefined;
+    let display = document.getElementById("display");
+    
+    display.value = "";
 }
