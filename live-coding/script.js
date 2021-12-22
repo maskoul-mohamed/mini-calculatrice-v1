@@ -25,9 +25,9 @@ function onClickNumber(number) {
 
 
     // if (aString == undefined) {
-    //     aString += number
+    //     aString = number
     // } else {
-    //     bString += number
+    //     bString = number
     // }
 
     display()
