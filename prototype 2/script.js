@@ -63,7 +63,6 @@ function equal() {
     calculatrice.a = parseFloat(aString);
     calculatrice.b = parseFloat(bString);
 
-    calculatrice.calculate()
 
     display(calculatrice.calculate())
 
